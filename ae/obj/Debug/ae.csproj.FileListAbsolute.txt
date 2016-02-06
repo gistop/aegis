@@ -1,0 +1,31 @@
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\bin\Debug\ae.exe.config
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\bin\Debug\ae.exe
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\bin\Debug\ae.pdb
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\obj\Debug\ae.Properties.Resources.resources
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\obj\Debug\ae.csproj.GenerateResource.Cache
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\obj\Debug\ae.exe
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\obj\Debug\ae.pdb
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\obj\Debug\ae.csprojResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\obj\Debug\ae.MainForm.resources
+c:\users\administrator\documents\visual studio 2012\Projects\ae\ae\obj\Debug\ae.CenterForm.resources
+C:\temp\ae2\ae\bin\Debug\ae.exe.config
+C:\temp\ae2\ae\obj\Debug\ae.exe
+C:\temp\ae2\ae\obj\Debug\ae.pdb
+C:\temp\ae2\ae\bin\Debug\ae.exe
+C:\temp\ae2\ae\bin\Debug\ae.pdb
+C:\temp\ae2\ae\obj\Debug\ae.csprojResolveAssemblyReference.cache
+C:\temp\ae2\ae\obj\Debug\ae.CenterForm.resources
+C:\temp\ae2\ae\obj\Debug\ae.MainForm.resources
+C:\temp\ae2\ae\obj\Debug\ae.Properties.Resources.resources
+C:\temp\ae2\ae\obj\Debug\ae.csproj.GenerateResource.Cache
+C:\temp\ae4\ae\bin\Debug\ae.exe.config
+C:\temp\ae4\ae\obj\Debug\ae.exe
+C:\temp\ae4\ae\obj\Debug\ae.pdb
+C:\temp\ae4\ae\bin\Debug\ae.exe
+C:\temp\ae4\ae\bin\Debug\ae.pdb
+C:\temp\ae4\ae\obj\Debug\ae.csprojResolveAssemblyReference.cache
+C:\temp\ae4\ae\obj\Debug\ae.CenterForm.resources
+C:\temp\ae4\ae\obj\Debug\ae.MainForm.resources
+C:\temp\ae4\ae\obj\Debug\ae.MapForm.resources
+C:\temp\ae4\ae\obj\Debug\ae.Properties.Resources.resources
+C:\temp\ae4\ae\obj\Debug\ae.csproj.GenerateResource.Cache
