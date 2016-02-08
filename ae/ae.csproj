@@ -96,6 +96,8 @@
     <Compile Include="CenterForm.Designer.cs">
       <DependentUpon>CenterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="Home.cs" />
     <Compile Include="LayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>

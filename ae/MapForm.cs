@@ -16,6 +16,7 @@ namespace ae
         public MapForm()
         {
             InitializeComponent();
+            Global.mainmap = this.axMapControl1;
         }
     }
 }

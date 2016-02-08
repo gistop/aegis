@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevComponents.DotNetBar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,5 +30,27 @@ namespace ae
             centerWin.Show(dockPanel1);
 
         }
+
+        private void buttonItem_Click(object sender, EventArgs e)
+        {
+            string tag = ((ButtonItem)sender).Tag.ToString();
+            switch (tag)
+            {
+                case "home":
+                    Home h = new Home();
+                    h.HomeOperation((ButtonItem)sender);
+                    break;
+                case "1":
+                    //dayName = "Monday";
+                    break;
+                case "2":
+                    //dayName = "Tuesday";
+                    break;
+                default:
+                    //dayName = "Unknown";
+                    break;
+            }
+        }
+        //buttonItem_Clickend
     }
 }
