@@ -29,3 +29,6 @@ C:\temp\ae4\ae\obj\Debug\ae.MainForm.resources
 C:\temp\ae4\ae\obj\Debug\ae.MapForm.resources
 C:\temp\ae4\ae\obj\Debug\ae.Properties.Resources.resources
 C:\temp\ae4\ae\obj\Debug\ae.csproj.GenerateResource.Cache
+C:\temp\ae8\ae\bin\Debug\ae.exe.config
+C:\temp\ae8\ae\obj\Debug\ae.exe
+C:\temp\ae8\ae\obj\Debug\ae.pdb
