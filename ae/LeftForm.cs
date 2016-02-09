@@ -1,5 +1,6 @@
 ﻿using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.Geodatabase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,6 +79,45 @@ namespace ae
                     //m_menuLayer.Remove(0)
                 };
             }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            IMap pMap = new MapClass();
+            IFeatureLayer pFeatureLayer = (IFeatureLayer)Global.mainmap.get_Layer(0);
+            IFields pFields = pFeatureLayer.FeatureClass.Fields;
+            DataTable pDataTable = new DataTable();
+            for (int i = 0; i < pFields.FieldCount; i++)
+            {
+                string fldName;
+                fldName = pFields.get_Field(i).AliasName;
+                pDataTable.Columns.Add(fldName);
+            }
+
+            IFeatureCursor pFeatureCursor;
+            pFeatureCursor = pFeatureLayer.FeatureClass.Search(null, false);
+            IFeature pFeature;
+            pFeature = pFeatureCursor.NextFeature();
+            while (pFeature != null)
+            {
+                string fldValue = null;
+                DataRow dr = pDataTable.NewRow();
+                for (int i = 0; i < pFields.FieldCount; i++)
+                {
+                    string fldName;
+                    fldName = pFields.get_Field(i).Name;
+                    if (fldName == "Shape")
+                    {
+                        fldValue = Convert.ToString(pFeature.Shape.GeometryType);
+                    }
+                    else
+                        fldValue = Convert.ToString(pFeature.get_Value(i));
+                    dr[i] = fldValue;
+                }
+                pDataTable.Rows.Add(dr);
+                pFeature = pFeatureCursor.NextFeature();
+            }
+            Global.dgvattribution.DataSource = pDataTable;
         }
     }
 }

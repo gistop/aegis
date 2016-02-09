@@ -16,6 +16,7 @@ namespace ae
         public AttributionForm()
         {
             InitializeComponent();
+            Global.dgvattribution = this.dataGridView1;
         }
     }
 }
