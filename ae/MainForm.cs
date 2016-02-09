@@ -51,6 +51,19 @@ namespace ae
                     break;
             }
         }
+
+        private void buttonItem16_Click(object sender, EventArgs e)
+        {
+            Thematicmap tm = new Thematicmap();
+            ESRI.ArcGIS.Display.IColor rgbColor = new ESRI.ArcGIS.Display.RgbColorClass();
+            rgbColor.RGB = 255;
+             ESRI.ArcGIS.Display.IColor rgbColor1 = new ESRI.ArcGIS.Display.RgbColorClass();
+            rgbColor1.RGB = 100;
+            tm.createSimpleFillSymbol("boundary", ESRI.ArcGIS.Display.esriSimpleFillStyle.esriSFSDiagonalCross, rgbColor, rgbColor1,"AREA","test");
+            ESRI.ArcGIS.Carto.IActiveView pActiveView = Global.mainmap.Map as ESRI.ArcGIS.Carto.IActiveView;
+            pActiveView.Refresh();
+            Global.toc.Update();
+        }
         //buttonItem_Clickend
     }
 }
