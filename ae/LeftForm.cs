@@ -16,6 +16,7 @@ namespace ae
         public LeftForm()
         {
             InitializeComponent();
+            Global.toc = this.axTOCControl1;
         }
     }
 }

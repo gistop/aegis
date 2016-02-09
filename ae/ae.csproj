@@ -131,6 +131,9 @@
     <EmbeddedResource Include="CenterForm.resx">
       <DependentUpon>CenterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LeftForm.resx">
+      <DependentUpon>LeftForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,6 +16,7 @@ namespace ae
         public MapForm()
         {
             InitializeComponent();
+            Global.toc.SetBuddyControl(this.axMapControl1);
             Global.mainmap = this.axMapControl1;
         }
     }

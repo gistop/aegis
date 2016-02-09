@@ -32,3 +32,4 @@ C:\temp\ae4\ae\obj\Debug\ae.csproj.GenerateResource.Cache
 C:\temp\ae8\ae\bin\Debug\ae.exe.config
 C:\temp\ae8\ae\obj\Debug\ae.exe
 C:\temp\ae8\ae\obj\Debug\ae.pdb
+C:\temp\ae13\ae\bin\Debug\ae.exe.config

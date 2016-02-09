@@ -10,5 +10,6 @@ namespace ae
     class Global
     {
         public static AxMapControl mainmap;
+        public static AxTOCControl toc;
     }
 }
