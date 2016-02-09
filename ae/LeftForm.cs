@@ -60,7 +60,7 @@ namespace ae
                            SymbolToolStripMenuItem.DropDownItems.Add(pfeatureclass.Fields.get_Field(i).Name, null, new EventHandler(this.symbolshow_Clicked)); }
                 
                    */
-
+                    toolStripMenuItem2.Click +=toolStripMenuItem2_Click;
                     contextMenuStrip1.Show(axTOCControl1, new System.Drawing.Point(e.x, e.y));
 
                     //m_menuLayer.AddItem(new frmAttribute(axMapControl1, pLayer), -1, 2, true, esriCommandStyles.esriCommandStyleTextOnly);
