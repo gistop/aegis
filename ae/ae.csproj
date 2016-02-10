@@ -74,6 +74,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -99,6 +100,12 @@
     </Compile>
     <Compile Include="CenterForm.Designer.cs">
       <DependentUpon>CenterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChartForm.Designer.cs">
+      <DependentUpon>ChartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Datamanagement.cs" />
     <Compile Include="Global.cs" />
@@ -139,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CenterForm.resx">
       <DependentUpon>CenterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChartForm.resx">
+      <DependentUpon>ChartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LeftForm.resx">
       <DependentUpon>LeftForm.cs</DependentUpon>

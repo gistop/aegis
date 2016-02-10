@@ -17,6 +17,7 @@ namespace ae
         private AttributionForm attributionform = new AttributionForm();
         private LayoutForm layoutForm = new LayoutForm();
         private MapForm mapForm = new MapForm();
+        private ChartForm chartForm = new ChartForm();
 
         
         public CenterForm()
@@ -26,6 +27,7 @@ namespace ae
             attributionform.Show(dockPanel2, DockState.DockBottom);
             mapForm.Show(dockPanel2);
             layoutForm.Show(dockPanel2);
+            chartForm.Show(dockPanel2);
             mapForm.Activate(); //激活项
             
         }
