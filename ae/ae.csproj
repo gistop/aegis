@@ -100,6 +100,7 @@
     <Compile Include="CenterForm.Designer.cs">
       <DependentUpon>CenterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Datamanagement.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Home.cs" />
     <Compile Include="LayoutForm.cs">
