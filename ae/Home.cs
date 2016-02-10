@@ -19,8 +19,8 @@ namespace ae
                 case "openmxd":
                     OpenMXD();
                     break;
-                case "1":
-
+                case "zoomin":
+                    MapNavigation("zoomin");
                     break;
                 case "2":
 
@@ -56,6 +56,37 @@ namespace ae
             }
         }
         //加载MXD数据end
+
+        //地图导航
+        private void MapNavigation(string type)
+        {
+            int index;
+            switch (type)
+            {
+                case "zoomin":
+                    index = 1;
+                    break;
+                case "zoomout":
+                    //statements
+                    break;
+                //...
+                default:
+                    //statements
+                    break;
+            }
+
+            ESRI.ArcGIS.SystemUI.ICommand command = Global.maptoolbar.CommandPool.get_Command(index);  //放大按钮索引为3
+            string str = command.Name;
+
+            ESRI.ArcGIS.SystemUI.ICommand pCommand;
+            pCommand = new ESRI.ArcGIS.Controls.ControlsMapZoomInToolClass();
+            pCommand.OnCreate(Global.mainmap.Object);
+            Global.mainmap.CurrentTool = pCommand as ESRI.ArcGIS.SystemUI.ITool;
+
+
+            command.OnClick();
+        }
+        //地图导航end
 
 
     }

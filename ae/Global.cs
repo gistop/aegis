@@ -14,5 +14,6 @@ namespace ae
         public static AxTOCControl toc;
         public static DataGridView dgvattribution;
         public static AxPageLayoutControl plt;
+        public static AxToolbarControl maptoolbar;
     }
 }

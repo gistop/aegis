@@ -29,6 +29,10 @@ namespace ae
             leftWin.Show(dockPanel1, DockState.DockLeft);
             centerWin.Show(dockPanel1);
 
+            axToolbarControl1.SetBuddyControl(Global.mainmap);
+            Global.maptoolbar = axToolbarControl1;
+
+
         }
 
         private void buttonItem_Click(object sender, EventArgs e)
