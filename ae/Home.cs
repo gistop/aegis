@@ -60,7 +60,7 @@ namespace ae
         //地图导航
         private void MapNavigation(string type)
         {
-            int index;
+            int index = 0;
             switch (type)
             {
                 case "zoomin":
