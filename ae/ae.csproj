@@ -150,6 +150,9 @@
     <EmbeddedResource Include="ChartForm.resx">
       <DependentUpon>ChartForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LayoutForm.resx">
+      <DependentUpon>LayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LeftForm.resx">
       <DependentUpon>LeftForm.cs</DependentUpon>
     </EmbeddedResource>

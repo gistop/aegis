@@ -19,5 +19,11 @@ namespace ae
             Global.toc.SetBuddyControl(this.axMapControl1);
             Global.mainmap = this.axMapControl1;
         }
+
+        private void axMapControl1_OnAfterScreenDraw(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnAfterScreenDrawEvent e)
+        {
+            Datamanagement dt = new Datamanagement();
+            dt.copyToPageLayout();
+        }
     }
 }

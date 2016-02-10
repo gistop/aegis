@@ -1,4 +1,5 @@
 ﻿using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geodatabase;
 using System;
 using System.Collections.Generic;
@@ -57,6 +58,15 @@ namespace ae
                 pFeature = pFeatureCursor.NextFeature();
             }
             Global.dgvattribution.DataSource = pDataTable;
+        }
+
+        public void copyToPageLayout()
+        {
+            IObjectCopy objectcopy = new ObjectCopyClass();
+            object copyFromMap = Global.mainmap.Map;
+            object copyMap = objectcopy.Copy(copyFromMap);
+            object copyToMap = Global.plt.ActiveView.FocusMap;
+            objectcopy.Overwrite(copyMap, ref copyToMap);
         }
     }
 }

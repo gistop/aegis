@@ -16,6 +16,7 @@ namespace ae
         public LayoutForm()
         {
             InitializeComponent();
+            Global.plt = this.axPageLayoutControl1;
         }
     }
 }
