@@ -18,6 +18,7 @@ namespace ae
         private LayoutForm layoutForm = new LayoutForm();
         private MapForm mapForm = new MapForm();
         private ChartForm chartForm = new ChartForm();
+        private RightForm rightForm = new RightForm();
 
         
         public CenterForm()
@@ -28,6 +29,7 @@ namespace ae
             mapForm.Show(dockPanel2);
             layoutForm.Show(dockPanel2);
             chartForm.Show(dockPanel2);
+            rightForm.Show(dockPanel2, DockState.DockRight);
             mapForm.Activate(); //激活项
             
         }
