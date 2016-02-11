@@ -47,7 +47,7 @@ namespace ae
                 case "1":
                     //dayName = "Monday";
                     break;
-                case "2":
+                case "query":
                     //dayName = "Tuesday";
                     break;
                 default:

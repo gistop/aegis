@@ -22,8 +22,8 @@ namespace ae
                 case "zoomin":
                     MapNavigation("zoomin");
                     break;
-                case "2":
-
+                case "点":
+                    SpatialQuery();
                     break;
                 default:
 
@@ -87,6 +87,12 @@ namespace ae
             command.OnClick();
         }
         //地图导航end
+
+        //空间查询
+        private void SpatialQuery()
+        { 
+        }
+        //空间查询end
 
 
     }

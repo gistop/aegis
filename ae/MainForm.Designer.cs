@@ -46,14 +46,25 @@
             WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
+            this.itemContainer11 = new DevComponents.DotNetBar.ItemContainer();
+            this.itemContainer12 = new DevComponents.DotNetBar.ItemContainer();
+            this.comboBoxItem1 = new DevComponents.DotNetBar.ComboBoxItem();
+            this.comboBoxItem2 = new DevComponents.DotNetBar.ComboBoxItem();
+            this.buttonItem18 = new DevComponents.DotNetBar.ButtonItem();
+            this.itemContainer13 = new DevComponents.DotNetBar.ItemContainer();
+            this.buttonItem19 = new DevComponents.DotNetBar.ButtonItem();
             this.axToolbarControl1 = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
             this.itemContainer9 = new DevComponents.DotNetBar.ItemContainer();
+            this.buttonItem17 = new DevComponents.DotNetBar.ButtonItem();
             this.itemContainer10 = new DevComponents.DotNetBar.ItemContainer();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.itemContainer6 = new DevComponents.DotNetBar.ItemContainer();
+            this.buttonItem14 = new DevComponents.DotNetBar.ButtonItem();
             this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
             this.itemContainer7 = new DevComponents.DotNetBar.ItemContainer();
+            this.buttonItem15 = new DevComponents.DotNetBar.ButtonItem();
             this.labelItem2 = new DevComponents.DotNetBar.LabelItem();
             this.ribbonPanel5 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
@@ -89,17 +100,8 @@
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
-            this.itemContainer11 = new DevComponents.DotNetBar.ItemContainer();
-            this.itemContainer12 = new DevComponents.DotNetBar.ItemContainer();
-            this.itemContainer13 = new DevComponents.DotNetBar.ItemContainer();
-            this.comboBoxItem1 = new DevComponents.DotNetBar.ComboBoxItem();
-            this.comboBoxItem2 = new DevComponents.DotNetBar.ComboBoxItem();
-            this.buttonItem18 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem19 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem17 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem14 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem15 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem20 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem21 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -149,6 +151,76 @@
             this.ribbonPanel1.Size = new System.Drawing.Size(563, 97);
             this.ribbonPanel1.TabIndex = 1;
             // 
+            // ribbonBar4
+            // 
+            this.ribbonBar4.AutoOverflowEnabled = true;
+            this.ribbonBar4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar4.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.itemContainer11});
+            this.ribbonBar4.Location = new System.Drawing.Point(203, 0);
+            this.ribbonBar4.Name = "ribbonBar4";
+            this.ribbonBar4.Size = new System.Drawing.Size(250, 94);
+            this.ribbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ribbonBar4.TabIndex = 3;
+            this.ribbonBar4.Text = "ribbonBar4";
+            // 
+            // itemContainer11
+            // 
+            this.itemContainer11.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+            this.itemContainer11.MinimumSize = new System.Drawing.Size(0, 0);
+            this.itemContainer11.Name = "itemContainer11";
+            this.itemContainer11.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.itemContainer12,
+            this.itemContainer13});
+            // 
+            // itemContainer12
+            // 
+            this.itemContainer12.MinimumSize = new System.Drawing.Size(0, 0);
+            this.itemContainer12.Name = "itemContainer12";
+            this.itemContainer12.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.comboBoxItem1,
+            this.comboBoxItem2,
+            this.buttonItem18});
+            // 
+            // comboBoxItem1
+            // 
+            this.comboBoxItem1.Caption = "comboBoxItem1";
+            this.comboBoxItem1.DropDownHeight = 106;
+            this.comboBoxItem1.ItemHeight = 16;
+            this.comboBoxItem1.Name = "comboBoxItem1";
+            // 
+            // comboBoxItem2
+            // 
+            this.comboBoxItem2.Caption = "comboBoxItem2";
+            this.comboBoxItem2.DropDownHeight = 106;
+            this.comboBoxItem2.ItemHeight = 16;
+            this.comboBoxItem2.Name = "comboBoxItem2";
+            // 
+            // buttonItem18
+            // 
+            this.buttonItem18.Image = global::ae.Properties.Resources.search;
+            this.buttonItem18.ImagePaddingHorizontal = 8;
+            this.buttonItem18.Name = "buttonItem18";
+            this.buttonItem18.Text = "buttonItem18";
+            // 
+            // itemContainer13
+            // 
+            this.itemContainer13.MinimumSize = new System.Drawing.Size(0, 0);
+            this.itemContainer13.Name = "itemContainer13";
+            this.itemContainer13.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem19});
+            // 
+            // buttonItem19
+            // 
+            this.buttonItem19.ImagePaddingHorizontal = 8;
+            this.buttonItem19.Name = "buttonItem19";
+            this.buttonItem19.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem20,
+            this.buttonItem21});
+            this.buttonItem19.Tag = "query";
+            this.buttonItem19.Text = "点";
+            this.buttonItem19.Click += new System.EventHandler(this.buttonItem_Click);
+            // 
             // axToolbarControl1
             // 
             this.axToolbarControl1.Location = new System.Drawing.Point(459, 3);
@@ -179,6 +251,15 @@
             this.itemContainer9.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem17});
             // 
+            // buttonItem17
+            // 
+            this.buttonItem17.Image = global::ae.Properties.Resources.zoom_in;
+            this.buttonItem17.ImagePaddingHorizontal = 8;
+            this.buttonItem17.Name = "buttonItem17";
+            this.buttonItem17.Tag = "home";
+            this.buttonItem17.Text = "zoomin";
+            this.buttonItem17.Click += new System.EventHandler(this.buttonItem_Click);
+            // 
             // itemContainer10
             // 
             this.itemContainer10.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
@@ -208,6 +289,13 @@
             this.buttonItem14,
             this.labelItem1});
             // 
+            // buttonItem14
+            // 
+            this.buttonItem14.Image = global::ae.Properties.Resources.map;
+            this.buttonItem14.ImagePaddingHorizontal = 8;
+            this.buttonItem14.Name = "buttonItem14";
+            this.buttonItem14.Text = "buttonItem14";
+            // 
             // labelItem1
             // 
             this.labelItem1.Name = "labelItem1";
@@ -221,6 +309,15 @@
             this.itemContainer7.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem15,
             this.labelItem2});
+            // 
+            // buttonItem15
+            // 
+            this.buttonItem15.Image = global::ae.Properties.Resources.open;
+            this.buttonItem15.ImagePaddingHorizontal = 8;
+            this.buttonItem15.Name = "buttonItem15";
+            this.buttonItem15.Tag = "home";
+            this.buttonItem15.Text = "openmxd";
+            this.buttonItem15.Click += new System.EventHandler(this.buttonItem_Click);
             // 
             // labelItem2
             // 
@@ -588,95 +685,17 @@
             this.dockPanel1.Skin = dockPanelSkin1;
             this.dockPanel1.TabIndex = 2;
             // 
-            // ribbonBar4
+            // buttonItem20
             // 
-            this.ribbonBar4.AutoOverflowEnabled = true;
-            this.ribbonBar4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar4.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.itemContainer11});
-            this.ribbonBar4.Location = new System.Drawing.Point(203, 0);
-            this.ribbonBar4.Name = "ribbonBar4";
-            this.ribbonBar4.Size = new System.Drawing.Size(250, 94);
-            this.ribbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonBar4.TabIndex = 3;
-            this.ribbonBar4.Text = "ribbonBar4";
+            this.buttonItem20.ImagePaddingHorizontal = 8;
+            this.buttonItem20.Name = "buttonItem20";
+            this.buttonItem20.Text = "线";
             // 
-            // itemContainer11
+            // buttonItem21
             // 
-            this.itemContainer11.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-            this.itemContainer11.MinimumSize = new System.Drawing.Size(0, 0);
-            this.itemContainer11.Name = "itemContainer11";
-            this.itemContainer11.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.itemContainer12,
-            this.itemContainer13});
-            // 
-            // itemContainer12
-            // 
-            this.itemContainer12.MinimumSize = new System.Drawing.Size(0, 0);
-            this.itemContainer12.Name = "itemContainer12";
-            this.itemContainer12.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.comboBoxItem1,
-            this.comboBoxItem2,
-            this.buttonItem18});
-            // 
-            // itemContainer13
-            // 
-            this.itemContainer13.MinimumSize = new System.Drawing.Size(0, 0);
-            this.itemContainer13.Name = "itemContainer13";
-            this.itemContainer13.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem19});
-            // 
-            // comboBoxItem1
-            // 
-            this.comboBoxItem1.Caption = "comboBoxItem1";
-            this.comboBoxItem1.DropDownHeight = 106;
-            this.comboBoxItem1.ItemHeight = 16;
-            this.comboBoxItem1.Name = "comboBoxItem1";
-            // 
-            // comboBoxItem2
-            // 
-            this.comboBoxItem2.Caption = "comboBoxItem2";
-            this.comboBoxItem2.DropDownHeight = 106;
-            this.comboBoxItem2.ItemHeight = 16;
-            this.comboBoxItem2.Name = "comboBoxItem2";
-            // 
-            // buttonItem18
-            // 
-            this.buttonItem18.Image = global::ae.Properties.Resources.search;
-            this.buttonItem18.ImagePaddingHorizontal = 8;
-            this.buttonItem18.Name = "buttonItem18";
-            this.buttonItem18.Text = "buttonItem18";
-            // 
-            // buttonItem19
-            // 
-            this.buttonItem19.ImagePaddingHorizontal = 8;
-            this.buttonItem19.Name = "buttonItem19";
-            this.buttonItem19.Text = "buttonItem19";
-            // 
-            // buttonItem17
-            // 
-            this.buttonItem17.Image = global::ae.Properties.Resources.zoom_in;
-            this.buttonItem17.ImagePaddingHorizontal = 8;
-            this.buttonItem17.Name = "buttonItem17";
-            this.buttonItem17.Tag = "home";
-            this.buttonItem17.Text = "zoomin";
-            this.buttonItem17.Click += new System.EventHandler(this.buttonItem_Click);
-            // 
-            // buttonItem14
-            // 
-            this.buttonItem14.Image = global::ae.Properties.Resources.map;
-            this.buttonItem14.ImagePaddingHorizontal = 8;
-            this.buttonItem14.Name = "buttonItem14";
-            this.buttonItem14.Text = "buttonItem14";
-            // 
-            // buttonItem15
-            // 
-            this.buttonItem15.Image = global::ae.Properties.Resources.open;
-            this.buttonItem15.ImagePaddingHorizontal = 8;
-            this.buttonItem15.Name = "buttonItem15";
-            this.buttonItem15.Tag = "home";
-            this.buttonItem15.Text = "openmxd";
-            this.buttonItem15.Click += new System.EventHandler(this.buttonItem_Click);
+            this.buttonItem21.ImagePaddingHorizontal = 8;
+            this.buttonItem21.Name = "buttonItem21";
+            this.buttonItem21.Text = "buttonItem21";
             // 
             // MainForm
             // 
@@ -757,6 +776,8 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem18;
         private DevComponents.DotNetBar.ItemContainer itemContainer13;
         private DevComponents.DotNetBar.ButtonItem buttonItem19;
+        private DevComponents.DotNetBar.ButtonItem buttonItem20;
+        private DevComponents.DotNetBar.ButtonItem buttonItem21;
     }
 }
 
