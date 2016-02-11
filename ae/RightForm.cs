@@ -29,6 +29,7 @@ namespace ae
             node2.Text = "2";
             //二级
             TreeNode node11 = new TreeNode();
+            node11.ImageIndex = 1;  //based 0
             node11.Text = "11";
             TreeNode node12 = new TreeNode();
             node12.Text = "12";
