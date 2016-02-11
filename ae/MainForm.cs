@@ -48,7 +48,8 @@ namespace ae
                     //dayName = "Monday";
                     break;
                 case "query":
-                    //dayName = "Tuesday";
+                    Home h1 = new Home();
+                    h1.HomeOperation((ButtonItem)sender);
                     break;
                 default:
                     //dayName = "Unknown";
