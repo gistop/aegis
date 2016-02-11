@@ -40,3 +40,4 @@ C:\temp\ae22\ae\bin\Debug\ae.exe.config
 C:\temp\ae23\ae\bin\Debug\ae.exe.config
 C:\temp\ae25\ae\bin\Debug\ae.exe.config
 C:\temp\ae26\ae\bin\Debug\ae.exe.config
+C:\temp\ae30\ae\bin\Debug\ae.exe.config
