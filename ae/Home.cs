@@ -1,4 +1,7 @@
 ﻿using DevComponents.DotNetBar;
+using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.Geodatabase;
+using ESRI.ArcGIS.Geometry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +26,7 @@ namespace ae
                     MapNavigation("zoomin");
                     break;
                 case "点":
-                    SpatialQuery();
+                    SpatialQuery(action);
                     break;
                 default:
 
@@ -89,10 +92,105 @@ namespace ae
         //地图导航end
 
         //空间查询
-        private void SpatialQuery()
-        { 
+        private void SpatialQuery(string type)
+        {
+            switch (type)
+            {
+                case "点":
+                    PointQuery();
+                    break;
+                case "线":
+                    //statements
+                    break;
+                default:
+                    //statements
+                    break;
+            }
         }
         //空间查询end
+
+        //点查询
+        private void PointQuery()
+        {
+            Global.mainmap.OnMouseDown += mainmap_OnMouseDown;
+        }
+
+        void mainmap_OnMouseDown(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseDownEvent e)
+        {
+            int m_px = e.x;
+            int m_py = e.y;
+            IMap m_pMap = Global.mainmap.Map;
+            ClickSelectFeature(ref m_pMap, m_px, m_py);
+        }
+
+        private void ClickSelectFeature(ref IMap m_pMap, int x, int y)
+        {
+            // get the layer
+            IFeatureLayer pFeatureLayer = m_pMap.get_Layer(0) as IFeatureLayer;
+            if (pFeatureLayer == null) return;
+            IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;//get the feature
+            if (pFeatureClass == null) return;
+            //get mouse position
+            IActiveView pActiveView = m_pMap as IActiveView;
+            IPoint pPoint = pActiveView.ScreenDisplay.DisplayTransformation.ToMapPoint(x, y);
+            //Use a 4 pixel buffer around the cursor for feature search
+            double length;
+            length = ConvertPixelsToMapUnits(pActiveView, 4);
+            ITopologicalOperator pTopo = pPoint as ITopologicalOperator;
+            IGeometry pBuffer = pTopo.Buffer(length);//建立4个地图单位的缓冲区
+            IGeometry pGeometry = pBuffer.Envelope;//确定鼠标周围隐藏的选择框
+
+            //新建一个空间约束器
+            ISpatialFilter pSpatialFilter;
+            IQueryFilter pFilter;
+            //设置查询约束条件
+            pSpatialFilter = new SpatialFilter();
+            pSpatialFilter.Geometry = pGeometry;
+
+            switch (pFeatureClass.ShapeType)
+            {
+                case esriGeometryType.esriGeometryPoint:
+                    pSpatialFilter.SpatialRel = esriSpatialRelEnum.esriSpatialRelContains;
+                    break;
+                case esriGeometryType.esriGeometryPolyline:
+                    pSpatialFilter.SpatialRel = esriSpatialRelEnum.esriSpatialRelCrosses;
+                    break;
+                case esriGeometryType.esriGeometryPolygon:
+                    pSpatialFilter.SpatialRel = esriSpatialRelEnum.esriSpatialRelIntersects;
+                    break;
+                default:
+                    break;
+            }
+            pSpatialFilter.GeometryField = pFeatureClass.ShapeFieldName;
+            pFilter = pSpatialFilter;
+            //Do the Search 从图层中查询出满足约束条件的元素
+            IFeatureCursor pCursor = pFeatureLayer.Search(pFilter, false);
+
+            //select
+            IFeature pFeature = pCursor.NextFeature();
+            m_pMap.SelectFeature(pFeatureLayer, pFeature);
+            while (pFeature != null)
+            {
+                m_pMap.SelectFeature(pFeatureLayer, pFeature);
+                pFeature = pCursor.NextFeature();
+            }
+
+            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeoSelection, null, null);
+        }
+        private double ConvertPixelsToMapUnits(IActiveView pActiveView, double pixelUnits)
+        {
+            // Uses the ratio of the size of the map in pixels to map units to do the conversion
+            IPoint p1 = pActiveView.ScreenDisplay.DisplayTransformation.VisibleBounds.UpperLeft;
+            IPoint p2 = pActiveView.ScreenDisplay.DisplayTransformation.VisibleBounds.UpperRight;
+            int x1, x2, y1, y2;
+            pActiveView.ScreenDisplay.DisplayTransformation.FromMapPoint(p1, out x1, out y1);
+            pActiveView.ScreenDisplay.DisplayTransformation.FromMapPoint(p2, out x2, out y2);
+            double pixelExtent = x2 - x1;
+            double realWorldDisplayExtent = pActiveView.ScreenDisplay.DisplayTransformation.VisibleBounds.Width;
+            double sizeOfOnePixel = realWorldDisplayExtent / pixelExtent;
+            return pixelUnits * sizeOfOnePixel;
+        }
+        //点查询end
 
 
     }
