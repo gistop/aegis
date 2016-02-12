@@ -18,5 +18,6 @@ namespace ae
         public static AxToolbarControl maptoolbar;
         public static string keyword;
         public static IFeature ifeature;
+        public static AxMapControl eagleeye;
     }
 }

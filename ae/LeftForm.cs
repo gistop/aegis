@@ -1,6 +1,7 @@
 ﻿using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Geodatabase;
+using ESRI.ArcGIS.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,7 @@ namespace ae
         {
             InitializeComponent();
             Global.toc = this.axTOCControl1;
+            Global.eagleeye = this.axMapControl1;
             splitContainer1.SplitterDistance = 10;
         }
 
@@ -121,6 +123,37 @@ namespace ae
                 pFeature = pFeatureCursor.NextFeature();
             }
             Global.dgvattribution.DataSource = pDataTable;
+        }
+
+        private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
+        {
+            if (Global.eagleeye.Map.LayerCount > 0)
+            {
+                if (e.button == 1)
+                {
+                    IPoint pPoint = new PointClass();
+                    pPoint.PutCoords(e.mapX, e.mapY);
+                    axMapControl1.CenterAt(pPoint);
+                    this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+                }
+                else if (e.button == 2)
+                {
+                    IEnvelope pEnv = Global.eagleeye.TrackRectangle();
+                    axMapControl1.Extent = pEnv;
+                    this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+                }
+            }
+        }
+
+        private void axMapControl1_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
+        {
+            if (e.button == 1) //设置右键
+            {
+                IPoint pPoint = new PointClass();
+                pPoint.PutCoords(e.mapX, e.mapY);
+                Global.eagleeye.CenterAt(pPoint);
+                Global.eagleeye.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+            }
         }
     }
 }
