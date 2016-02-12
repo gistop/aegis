@@ -15,5 +15,6 @@ namespace ae
         public static DataGridView dgvattribution;
         public static AxPageLayoutControl plt;
         public static AxToolbarControl maptoolbar;
+        public static string keyword;
     }
 }

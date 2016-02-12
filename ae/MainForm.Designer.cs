@@ -54,6 +54,8 @@
             this.buttonItem18 = new DevComponents.DotNetBar.ButtonItem();
             this.itemContainer13 = new DevComponents.DotNetBar.ItemContainer();
             this.buttonItem19 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem20 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem21 = new DevComponents.DotNetBar.ButtonItem();
             this.axToolbarControl1 = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
             this.itemContainer9 = new DevComponents.DotNetBar.ItemContainer();
@@ -100,8 +102,7 @@
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.buttonItem20 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem21 = new DevComponents.DotNetBar.ButtonItem();
+            this.tbikeyword = new DevComponents.DotNetBar.TextBoxItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -180,6 +181,7 @@
             this.itemContainer12.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.comboBoxItem1,
             this.comboBoxItem2,
+            this.tbikeyword,
             this.buttonItem18});
             // 
             // comboBoxItem1
@@ -201,7 +203,10 @@
             this.buttonItem18.Image = global::ae.Properties.Resources.search;
             this.buttonItem18.ImagePaddingHorizontal = 8;
             this.buttonItem18.Name = "buttonItem18";
-            this.buttonItem18.Text = "buttonItem18";
+            this.buttonItem18.Tag = "query";
+            this.buttonItem18.Text = "attributequery";
+            this.buttonItem18.Click += new System.EventHandler(this.buttonItem_Click);
+            this.buttonItem18.MouseEnter += new System.EventHandler(this.buttonItem18_MouseEnter);
             // 
             // itemContainer13
             // 
@@ -220,6 +225,18 @@
             this.buttonItem19.Tag = "query";
             this.buttonItem19.Text = "点";
             this.buttonItem19.Click += new System.EventHandler(this.buttonItem_Click);
+            // 
+            // buttonItem20
+            // 
+            this.buttonItem20.ImagePaddingHorizontal = 8;
+            this.buttonItem20.Name = "buttonItem20";
+            this.buttonItem20.Text = "线";
+            // 
+            // buttonItem21
+            // 
+            this.buttonItem21.ImagePaddingHorizontal = 8;
+            this.buttonItem21.Name = "buttonItem21";
+            this.buttonItem21.Text = "buttonItem21";
             // 
             // axToolbarControl1
             // 
@@ -685,17 +702,10 @@
             this.dockPanel1.Skin = dockPanelSkin1;
             this.dockPanel1.TabIndex = 2;
             // 
-            // buttonItem20
+            // tbikeyword
             // 
-            this.buttonItem20.ImagePaddingHorizontal = 8;
-            this.buttonItem20.Name = "buttonItem20";
-            this.buttonItem20.Text = "线";
-            // 
-            // buttonItem21
-            // 
-            this.buttonItem21.ImagePaddingHorizontal = 8;
-            this.buttonItem21.Name = "buttonItem21";
-            this.buttonItem21.Text = "buttonItem21";
+            this.tbikeyword.Caption = "textBoxItem1";
+            this.tbikeyword.Name = "tbikeyword";
             // 
             // MainForm
             // 
@@ -778,6 +788,7 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem19;
         private DevComponents.DotNetBar.ButtonItem buttonItem20;
         private DevComponents.DotNetBar.ButtonItem buttonItem21;
+        private DevComponents.DotNetBar.TextBoxItem tbikeyword;
     }
 }
 

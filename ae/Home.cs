@@ -28,6 +28,9 @@ namespace ae
                 case "点":
                     SpatialQuery(action);
                     break;
+                case "attributequery":
+                    AttributeQuery(action);
+                    break;
                 default:
 
                     break;
@@ -192,6 +195,57 @@ namespace ae
         }
         //点查询end
 
+        //属性查询
+        private IFeatureLayer mFeatureLayer;
+        private void AttributeQuery()
+        {
+            //定义图层，要素游标，查询过滤器，要素
+            IFeatureCursor pFeatureCursor;
+            IQueryFilter pQueryFilter;
+            IFeature pFeature;
+            IPoint pPoint;
+            IEnvelope pEnv;
+            pEnv = Global.mainmap.ActiveView.Extent;
+            pPoint = new PointClass();
+
+            pPoint.X = pEnv.XMin + pEnv.Width / 2;
+            pPoint.Y = pEnv.YMin + pEnv.Height / 2;
+            if (Global.mainmap.LayerCount <= 0)
+                return;
+            //获取图层
+            mFeatureLayer = Global.mainmap.get_Layer(0) as IFeatureLayer;
+            //清除上次查询结果
+            Global.mainmap.Map.ClearSelection();
+            Global.mainmap.ActiveView.Refresh();
+            //pQueryFilter的实例化
+            pQueryFilter = new QueryFilterClass();
+            //设置查询过滤条件
+            pQueryFilter.WhereClause = "NAME" + "=" + Global.keyword;
+            //查询
+            pFeatureCursor = mFeatureLayer.Search(pQueryFilter, true);
+            //获取查询到的要素
+            pFeature = pFeatureCursor.NextFeature();
+
+
+
+            //判断是否获取到要素
+            if (pFeature != null)
+            {
+                //选择要素
+                Global.mainmap.Map.SelectFeature(mFeatureLayer, pFeature);
+                //放大到要素
+
+                pFeature.Shape.Envelope.CenterAt(pPoint);
+                Global.mainmap.Extent = pFeature.Shape.Envelope;
+
+            }
+            else
+            {
+                //没有得到pFeature的提示
+                MessageBox.Show("没有找到相关要素！", "提示");
+            }
+        }
+        //属性查询end
 
     }
 }

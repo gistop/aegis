@@ -69,6 +69,11 @@ namespace ae
             pActiveView.Refresh();
             Global.toc.Update();
         }
+
+        private void buttonItem18_MouseEnter(object sender, EventArgs e)
+        {
+            Global.keyword = tbikeyword.Text;
+        }
         //buttonItem_Clickend
     }
 }
