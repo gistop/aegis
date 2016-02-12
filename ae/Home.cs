@@ -29,7 +29,7 @@ namespace ae
                     SpatialQuery(action);
                     break;
                 case "attributequery":
-                    AttributeQuery(action);
+                    AttributeQuery();
                     break;
                 default:
 
@@ -220,7 +220,7 @@ namespace ae
             //pQueryFilter的实例化
             pQueryFilter = new QueryFilterClass();
             //设置查询过滤条件
-            pQueryFilter.WhereClause = "NAME" + "=" + Global.keyword;
+            pQueryFilter.WhereClause = "NAME" + "='" + Global.keyword + "'";
             //查询
             pFeatureCursor = mFeatureLayer.Search(pQueryFilter, true);
             //获取查询到的要素
