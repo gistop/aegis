@@ -72,7 +72,7 @@ namespace ae
 
         private void buttonItem18_MouseEnter(object sender, EventArgs e)
         {
-            Global.keyword = tbikeyword.Text;
+            Global.keyword = tbikeyword.TextBox.Text;
         }
         //buttonItem_Clickend
     }
