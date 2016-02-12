@@ -1,4 +1,5 @@
 ﻿using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.Geodatabase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace ae
         public static AxPageLayoutControl plt;
         public static AxToolbarControl maptoolbar;
         public static string keyword;
+        public static IFeature ifeature;
     }
 }

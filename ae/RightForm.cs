@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ESRI.ArcGIS.Geometry;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,17 +21,17 @@ namespace ae
             treeView1.LabelEdit = false;//不可编辑
             //添加结点
             TreeNode root = new TreeNode();
-            root.Text = "根节点";
+            root.Text = "工具箱";
             //一级
             TreeNode node1 = new TreeNode();
-            node1.Text = "1";
+            node1.Text = "分析工具";
             //node1.ImageIndex = node1.SelectedImageIndex = 
             TreeNode node2 = new TreeNode();
             node2.Text = "2";
             //二级
             TreeNode node11 = new TreeNode();
             node11.ImageIndex = 1;  //based 0
-            node11.Text = "11";
+            node11.Text = "缓冲区";
             TreeNode node12 = new TreeNode();
             node12.Text = "12";
             TreeNode node21 = new TreeNode();
@@ -53,7 +54,12 @@ namespace ae
 
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("hh");
+            //MessageBox.Show("hh");
+            SpatialAnalysis sa = new SpatialAnalysis();
+            IGeometry g = sa.buffer(Global.ifeature, 100);
+
+            Datamanagement dm = new Datamanagement();
+            dm.showGraphics(g);
         }
     }
 }

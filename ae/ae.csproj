@@ -146,6 +146,7 @@
     <Compile Include="RightForm.Designer.cs">
       <DependentUpon>RightForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SpatialAnalysis.cs" />
     <Compile Include="Thematicmap.cs" />
     <EmbeddedResource Include="AttributionForm.resx">
       <DependentUpon>AttributionForm.cs</DependentUpon>

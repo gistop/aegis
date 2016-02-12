@@ -1,6 +1,7 @@
 ﻿using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geodatabase;
+using ESRI.ArcGIS.Geometry;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -68,5 +69,29 @@ namespace ae
             object copyToMap = Global.plt.ActiveView.FocusMap;
             objectcopy.Overwrite(copyMap, ref copyToMap);
         }
+
+        //显示临时数据
+        public void showGraphics(IGeometry pBufferGeo)
+        {
+            IGraphicsContainer pGraphicsContainer = Global.mainmap.Map as IGraphicsContainer;    //定义容器
+            //pFeature = pEnumFeature.Next();     //遍历要素
+            //if (pFeature == null)            //若不存在要素，则推出循环
+            //    break;
+            //pGeometry = pFeature.Shape;     //获取要素的Geometry
+            //ITopologicalOperator pTopoOperator = pGeometry as ITopologicalOperator; //QI到拓扑操作
+            //IGeometry pBufferGeo = pTopoOperator.Buffer(2);     //缓冲区分析
+
+            IElement pElement = new PolygonElement();
+            pElement.Geometry = pBufferGeo;     //获取得到的缓冲区
+
+            pGraphicsContainer.AddElement(pElement, 0); //显示缓冲区
+            //Global.mainmap
+            IMap pMap = Global.mainmap.Map;
+            IActiveView pActiveView;
+            pActiveView = pMap as IActiveView;
+            pActiveView.Refresh();
+        }
+        //显示临时数据end
+
     }
 }

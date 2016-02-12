@@ -226,7 +226,7 @@ namespace ae
             //获取查询到的要素
             pFeature = pFeatureCursor.NextFeature();
 
-
+            Global.ifeature = pFeature;
 
             //判断是否获取到要素
             if (pFeature != null)
