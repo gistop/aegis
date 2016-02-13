@@ -18,5 +18,11 @@ namespace ae
             InitializeComponent();
             Global.dgvattribution = this.dataGridView1;
         }
+
+        private void 添加字段ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Datamanagement dt = new Datamanagement();
+            dt.addField("test","string");
+        }
     }
 }

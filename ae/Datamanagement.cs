@@ -93,5 +93,29 @@ namespace ae
         }
         //显示临时数据end
 
+        //添加字段
+        public void addField(string fieldname,string type)
+        {
+            //new a field and add to the first layer in the map
+            //new a field: "name_cit", type:string
+            IField pField = new FieldClass();
+            IFieldEdit pFieldEdit = pField as IFieldEdit;
+            pFieldEdit.Name_2 = "name_city";
+            pFieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+            //achieve the first layer in the map
+            IFeatureLayer pFeatureLayer = Global.mainmap.Map.get_Layer(0) as IFeatureLayer;
+            IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+            IClass pTable = pFeatureClass as IClass;        //use ITable or IClass
+            pTable.AddField(pFieldEdit);
+            //set values of every feature's field-"name_cit" in the first layer
+            for (int i = 0; i < pFeatureClass.FeatureCount(null); i++)
+            {
+                IFeature pFeature = pFeatureClass.GetFeature(i);
+                pFeature.set_Value(pFeature.Fields.FindField("name_city"), "city_name");
+                pFeature.Store();
+            }
+        }
+        //添加字段end
+
     }
 }
