@@ -20,6 +20,24 @@ namespace ae
             itemopenattribution.Text = "打开属性表";
             itemopenattribution.Click += itemopenattribution_Click;
             contextmenustrip.Items.Add(itemopenattribution);
+
+
+            ToolStripMenuItem itemopenproperties = new ToolStripMenuItem();
+            itemopenproperties.Text = "打开图层属性";
+            itemopenproperties.Click += itemopenproperties_Click;
+            contextmenustrip.Items.Add(itemopenproperties);
+
+
+
+
+
+
+        }
+
+        void itemopenproperties_Click(object sender, EventArgs e)
+        {
+            Form propertiesform = new Form();
+
         }
 
         void itemopenattribution_Click(object sender, EventArgs e)
