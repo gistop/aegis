@@ -1,6 +1,6 @@
 ﻿namespace PropertiesForm
 {
-    partial class UserControl1
+    partial class PropertiesUC
     {
         /// <summary>
         /// 必需的设计器变量。

@@ -207,6 +207,12 @@
   <ItemGroup>
     <None Include="Resources\search.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PropertiesForm\PropertiesForm.csproj">
+      <Project>{B9F8E926-2338-4AA7-BD3A-E2EBD2E9E41A}</Project>
+      <Name>PropertiesForm</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

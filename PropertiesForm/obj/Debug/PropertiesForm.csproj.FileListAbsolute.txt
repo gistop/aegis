@@ -1,0 +1,8 @@
+C:\temp\ae49\PropertiesForm\bin\Debug\PropertiesForm.dll
+C:\temp\ae49\PropertiesForm\bin\Debug\PropertiesForm.pdb
+C:\temp\ae49\PropertiesForm\obj\Debug\PropertiesForm.csprojResolveAssemblyReference.cache
+C:\temp\ae49\PropertiesForm\obj\Debug\PropertiesForm.Graduatedcolors.resources
+C:\temp\ae49\PropertiesForm\obj\Debug\PropertiesForm.PropertiesUC.resources
+C:\temp\ae49\PropertiesForm\obj\Debug\PropertiesForm.csproj.GenerateResource.Cache
+C:\temp\ae49\PropertiesForm\obj\Debug\PropertiesForm.dll
+C:\temp\ae49\PropertiesForm\obj\Debug\PropertiesForm.pdb

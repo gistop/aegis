@@ -10,17 +10,22 @@ using System.Windows.Forms;
 
 namespace PropertiesForm
 {
-    public partial class UserControl1: UserControl
+    public partial class PropertiesUC: UserControl
     {
-        public UserControl1()
+        public PropertiesUC()
         {
             InitializeComponent();
         }
 
         //调用主程序函数
+        public delegate void PropertiesEvents();
+        public event PropertiesEvents ApplyEvents;
         private void button3_Click(object sender, EventArgs e)
         {
-
+            if (ApplyEvents != null)
+            {
+                ApplyEvents();
+            }
         }
     }
 }

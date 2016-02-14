@@ -2,6 +2,7 @@
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
+using PropertiesForm;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -37,7 +38,17 @@ namespace ae
         void itemopenproperties_Click(object sender, EventArgs e)
         {
             Form propertiesform = new Form();
+            PropertiesUC propertiesuc = new PropertiesUC();
+            propertiesuc.ApplyEvents += propertiesuc_ApplyEvents;
+            propertiesform.Controls.Add(propertiesuc);
+            propertiesform.Show();
 
+
+        }
+
+        void propertiesuc_ApplyEvents()
+        {
+            MessageBox.Show("xxx");
         }
 
         void itemopenattribution_Click(object sender, EventArgs e)

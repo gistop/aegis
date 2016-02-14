@@ -47,11 +47,11 @@
     <Compile Include="Graduatedcolors.Designer.cs">
       <DependentUpon>Graduatedcolors.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl1.cs">
+    <Compile Include="PropertiesUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="PropertiesUC.Designer.cs">
+      <DependentUpon>PropertiesUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
@@ -60,8 +60,8 @@
     <EmbeddedResource Include="Graduatedcolors.resx">
       <DependentUpon>Graduatedcolors.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="PropertiesUC.resx">
+      <DependentUpon>PropertiesUC.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
