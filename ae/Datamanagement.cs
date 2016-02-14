@@ -1,4 +1,5 @@
 ﻿using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
@@ -48,7 +49,54 @@ namespace ae
 
         void propertiesuc_ApplyEvents()
         {
-            MessageBox.Show("xxx");
+            //MessageBox.Show("xxx");
+            IFeatureLayer featurelayer = GetFeatureLayer();
+            ClassBreaksRenderer(featurelayer);
+            Refresh(2);
+        }
+
+        //0地图 1toc 2all
+        void Refresh(int type)
+        {
+            IMap pMap = Global.mainmap.Map;
+            IActiveView pActiveView;
+            pActiveView = pMap as IActiveView;
+            pActiveView.Refresh();
+            Global.toc.Update();
+        }
+
+
+        IFeatureLayer GetFeatureLayer()
+        {
+           IFeatureLayer pFeatureLayer = Global.mainmap.get_Layer(0) as IFeatureLayer;
+           return pFeatureLayer;
+        }
+
+        void ClassBreaksRenderer(IFeatureLayer featureLayer)
+        {
+            IClassBreaksRenderer classBreaksRenderer = new ClassBreaksRenderer();
+            classBreaksRenderer.Field = "AREA";
+            // 必须设置分类数量。
+            classBreaksRenderer.BreakCount = 4;
+            classBreaksRenderer.set_Break(0, 744366000);
+            classBreaksRenderer.set_Break(1, 2049800000);
+            classBreaksRenderer.set_Break(2, 3801580000);
+
+            // 设置填充样式。
+            IFillSymbol fillSymbol = new SimpleFillSymbol();
+            fillSymbol.Color = new RgbColor() { Red = 255, Green = 0, Blue = 0 };
+            classBreaksRenderer.set_Symbol(0, (ISymbol)fillSymbol);
+            fillSymbol = new SimpleFillSymbol();
+            fillSymbol.Color = new RgbColor() { Red = 0, Green = 255, Blue = 0 };
+            classBreaksRenderer.set_Symbol(1, (ISymbol)fillSymbol);
+            fillSymbol = new SimpleFillSymbol();
+            fillSymbol.Color = new RgbColor() { Red = 0, Green = 0, Blue = 255 };
+            classBreaksRenderer.set_Symbol(2, (ISymbol)fillSymbol);
+
+            // 图层设置渲染。
+            var featureRenderer = (IFeatureRenderer)classBreaksRenderer;
+            var geoFeatureLayer = (IGeoFeatureLayer)featureLayer;
+            geoFeatureLayer.Renderer = featureRenderer;
         }
 
         void itemopenattribution_Click(object sender, EventArgs e)
