@@ -1,4 +1,5 @@
 ﻿using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.DataSourcesGDB;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geodatabase;
@@ -193,6 +194,27 @@ namespace ae
             }
         }
         //添加字段end
+
+
+        public void connectSDE()
+        {
+            ESRI.ArcGIS.esriSystem.IPropertySet propertySet = new PropertySetClass();
+            propertySet.SetProperty("server", "42.96.131.137");
+            propertySet.SetProperty("instance", "sde:oracle11g:orcl");//这个隐藏的很深
+            propertySet.SetProperty("database", "orcl");//数据库名称
+            propertySet.SetProperty("user", "sys");
+            propertySet.SetProperty("password", "iswift638187");
+            propertySet.SetProperty("version", "SDE.DEFAULT");
+            SdeWorkspaceFactory sdeWkspFact = new SdeWorkspaceFactoryClass();
+            IFeatureWorkspace pFeaWksp = (IFeatureWorkspace)sdeWkspFact.Open(propertySet, 0);
+
+            IFeatureClass pFCRoads = pFeaWksp.OpenFeatureClass("point");
+            IFeatureLayer pFLRoads = new FeatureLayer();
+            pFLRoads.FeatureClass = pFCRoads;
+            pFLRoads.Name = "点";
+            ILayer pLayerRoads = pFLRoads as ILayer;
+            Global.mainmap.AddLayer(pLayerRoads);
+        }
 
     }
 }

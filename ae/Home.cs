@@ -31,12 +31,21 @@ namespace ae
                 case "attributequery":
                     AttributeQuery();
                     break;
+                case "adddata":
+                    AddData();
+                    break;
                 default:
 
                     break;
             }
 
 
+        }
+
+        private void AddData()
+        {
+            Datamanagement dm = new Datamanagement();
+            dm.connectSDE();
         }
         ////开始操作end
 
