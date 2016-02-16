@@ -53,6 +53,12 @@ namespace ae
             //图片数据加载
             //AddPic();
             //
+            AddShp();
+
+        }
+
+        private void AddShp()
+        {
             System.Windows.Forms.OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Title = "打开工程";
             openFileDialog1.Filter = "*.mxd|*.mxd|*.shp|*.shp";
@@ -91,7 +97,6 @@ namespace ae
                 }
 
             }
-
         }
 
         private void AddPic()
