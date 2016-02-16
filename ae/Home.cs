@@ -5,6 +5,7 @@ using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,52 @@ namespace ae
             //Datamanagement dm = new Datamanagement();
             //dm.connectSDE();
             //
+            //图片数据加载
+            //AddPic();
+            //
+            System.Windows.Forms.OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Title = "打开工程";
+            openFileDialog1.Filter = "*.mxd|*.mxd|*.shp|*.shp";
+            openFileDialog1.Multiselect = true;
+            openFileDialog1.ShowDialog();
+            string filePath = openFileDialog1.FileName;
+            if (1 == openFileDialog1.FilterIndex)
+            {
+                //if (axMapControl1.CheckMxFile(filePath))
+                //{
+                //    axMapControl1.MousePointer = esriControlsMousePointer.esriPointerArrowHourglass;
+                //    axMapControl1.LoadMxFile(filePath, 0, Type.Missing);
+                //    axMapControl1.MousePointer = esriControlsMousePointer.esriPointerDefault;
+                //}
+                //else
+                //{
+                //    MessageBox.Show(filePath + "不是有效的地图文档");
+                //}
+            }
+            else if (2 == openFileDialog1.FilterIndex)
+            {
+                string[] filepaths = openFileDialog1.FileNames;
+
+                foreach (string file in filepaths)
+                {
+                    FileInfo fileInfo = new FileInfo(file);
+                    string path = file.Substring(0, file.Length - fileInfo.Name.Length);
+                    try
+                    {
+                        Global.mainmap.AddShapeFile(path, fileInfo.Name);
+                    }
+                    catch (Exception r)
+                    {
+                        MessageBox.Show("添加图层失败" + r.ToString());
+                    }
+                }
+
+            }
+
+        }
+
+        private void AddPic()
+        {
             System.Windows.Forms.OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "*.bmp|*.bmp|*.jpg|*.jpg|*.tif|*.tif";
             ofd.ShowDialog();
