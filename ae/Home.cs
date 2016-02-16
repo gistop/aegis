@@ -1,5 +1,6 @@
 ﻿using DevComponents.DotNetBar;
 using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
 using System;
@@ -44,8 +45,64 @@ namespace ae
 
         private void AddData()
         {
-            Datamanagement dm = new Datamanagement();
-            dm.connectSDE();
+            //sde加载
+            //Datamanagement dm = new Datamanagement();
+            //dm.connectSDE();
+            //
+            System.Windows.Forms.OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "*.bmp|*.bmp|*.jpg|*.jpg|*.tif|*.tif";
+            ofd.ShowDialog();
+
+
+
+
+            string filePath = ofd.FileName;
+
+            //此两个路径和文件名作为参数：
+
+            string pathName = System.IO.Path.GetDirectoryName(filePath);
+            string fileName = System.IO.Path.GetFileName(filePath);
+
+
+
+            //定义工作空间工厂并实例化：
+
+            IWorkspaceFactory pWSF;
+            pWSF = new RasterWorkspaceFactoryClass();
+
+            //
+
+            IWorkspace pWS;
+            pWS = pWSF.OpenFromFile(pathName, 0);
+
+            IRasterWorkspace pRWS;
+            pRWS = pWS as IRasterWorkspace;
+
+
+            IRasterDataset pRasterDataset;
+            pRasterDataset = pRWS.OpenRasterDataset(fileName);
+
+            //影像金字塔的判断与创建
+            IRasterPyramid pRasPyrmid;
+            pRasPyrmid = pRasterDataset as IRasterPyramid;
+
+            if (pRasPyrmid != null)
+            {
+                if (!(pRasPyrmid.Present))
+                {
+                    pRasPyrmid.Create();
+                }
+            }
+
+            IRaster pRaster;
+            pRaster = pRasterDataset.CreateDefaultRaster();
+
+            IRasterLayer pRasterLayer;
+            pRasterLayer = new RasterLayerClass();
+            pRasterLayer.CreateFromRaster(pRaster);
+
+            ILayer pLayer = pRasterLayer as ILayer;
+            Global.mainmap.AddLayer(pLayer, 0);
         }
         ////开始操作end
 
