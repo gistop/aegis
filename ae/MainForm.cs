@@ -30,7 +30,9 @@ namespace ae
             centerWin.Show(dockPanel1);
 
             axToolbarControl1.SetBuddyControl(Global.mainmap);
+            axToolbarControl2.SetBuddyControl(Global.mainmap);
             Global.maptoolbar = axToolbarControl1;
+            Global.edittoolbar = axToolbarControl2;
 
 
         }
