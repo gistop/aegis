@@ -1,5 +1,6 @@
 ﻿using DevComponents.DotNetBar;
 using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.DataSourcesGDB;
 using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
@@ -53,7 +54,15 @@ namespace ae
             //图片数据加载
             //AddPic();
             //
-            AddShp();
+            //AddShp();
+            FileGDBWorkspaceFactory pWSF = new FileGDBWorkspaceFactory();
+            IFeatureWorkspace pWS1 = pWSF.OpenFromFile("C:\\temp\\gdb.gdb", 0) as IFeatureWorkspace;
+            IFeatureClass featureclass = pWS1.OpenFeatureClass("layer");
+            IFeatureLayer pFLRoads = new FeatureLayer();
+            pFLRoads.FeatureClass = featureclass;
+            pFLRoads.Name = "点";
+            ILayer pLayerRoads = pFLRoads as ILayer;
+            Global.mainmap.AddLayer(pLayerRoads);
 
         }
 
