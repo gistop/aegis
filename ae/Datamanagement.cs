@@ -6,6 +6,7 @@ using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
 using PropertiesForm;
+using stdole;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,6 +26,12 @@ namespace ae
             itemopenattribution.Click += itemopenattribution_Click;
             contextmenustrip.Items.Add(itemopenattribution);
 
+            ToolStripMenuItem itemaddlable = new ToolStripMenuItem();
+            itemaddlable.Text = "标注";
+            itemaddlable.Click += itemaddlable_Click;
+            contextmenustrip.Items.Add(itemaddlable);
+
+
             ToolStripMenuItem itemexportdata = new ToolStripMenuItem();
             itemexportdata.Text = "导出数据";
             itemexportdata.Click += itemexportdata_Click;
@@ -40,6 +47,67 @@ namespace ae
 
 
 
+        }
+
+        //添加标注
+        void itemaddlable_Click(object sender, EventArgs e)
+        {
+        //    //使用TextElment绘制标注, fieldName为要绘制的属性
+        //public static void AddLable(AxMapControl axMapControl, ILayer layer, string fieldName)
+        //{
+            ILayer layer = Global.mainmap.Map.get_Layer(0);
+            
+            IRgbColor pColor = new RgbColorClass()
+            {
+                Red = 255,
+                Blue = 0,
+                Green = 0
+            };
+            IFontDisp pFont = new StdFont()
+            {
+                Name = "宋体",
+                Size = 5
+            } as IFontDisp;
+            
+            ITextSymbol pTextSymbol = new TextSymbolClass()
+            {
+                Color = pColor,
+                Font = pFont,
+                Size = 11
+            };
+
+            IGraphicsContainer pGraContainer = Global.mainmap.Map as IGraphicsContainer;
+
+            //遍历要标注的要素
+            IFeatureLayer pFeaLayer = layer as IFeatureLayer;
+            IFeatureClass pFeaClass = pFeaLayer.FeatureClass;
+            IFeatureCursor pFeatCur = pFeaClass.Search(null, false);
+            IFeature pFeature = pFeatCur.NextFeature();
+            int index = pFeature.Fields.FindField("NAME");//要标注的字段的索引
+            IEnvelope pEnv = null;
+            ITextElement pTextElment = null;
+            IElement pEle = null;
+            while (pFeature != null)
+            {
+                //使用地理对象的中心作为标注的位置
+                pEnv = pFeature.Extent;
+                IPoint pPoint = new PointClass();
+                pPoint.PutCoords(pEnv.XMin + pEnv.Width * 0.5, pEnv.YMin + pEnv.Height * 0.5);
+
+                pTextElment = new TextElementClass()
+                {
+                    Symbol = pTextSymbol,
+                    ScaleText = true,
+                    Text = pFeature.get_Value(index).ToString()
+                };
+                pEle = pTextElment as IElement;
+                pEle.Geometry = pPoint;
+                //添加标注
+                pGraContainer.AddElement(pEle, 0);
+                pFeature = pFeatCur.NextFeature();
+            }
+            (Global.mainmap.Map as IActiveView).PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, Global.mainmap.Extent);
+       
         }
 
         //导出数据
