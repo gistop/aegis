@@ -1,4 +1,5 @@
 ﻿using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.DataSourcesFile;
 using ESRI.ArcGIS.DataSourcesGDB;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.esriSystem;
@@ -24,6 +25,10 @@ namespace ae
             itemopenattribution.Click += itemopenattribution_Click;
             contextmenustrip.Items.Add(itemopenattribution);
 
+            ToolStripMenuItem itemexportdata = new ToolStripMenuItem();
+            itemexportdata.Text = "导出数据";
+            itemexportdata.Click += itemexportdata_Click;
+            contextmenustrip.Items.Add(itemexportdata);
 
             ToolStripMenuItem itemopenproperties = new ToolStripMenuItem();
             itemopenproperties.Text = "打开图层属性";
@@ -36,6 +41,66 @@ namespace ae
 
 
         }
+
+        //导出数据
+        void itemexportdata_Click(object sender, EventArgs e)
+        {
+            //IFeatureLayer GetFeatureLayer();
+            IFeatureLayer pFeatureLayer = (IFeatureLayer)Global.mainmap.get_Layer(0);
+            IFeatureClass pFeatureClass = pFeatureLayer.FeatureClass;
+
+
+            //调用保存文件函数
+            string shpPath;
+            SaveFileDialog sa = new SaveFileDialog();
+            sa.Filter = "SHP文件(.shp)|*.shp";
+            sa.ShowDialog();
+            sa.CreatePrompt = true;
+            string ExportShapeFileName = sa.FileName;
+            // string StrFilter = "SHP文件(.shp)|*.shp";
+            // string ExportShapeFileName = SaveFileDialog(StrFilter);
+            if (ExportShapeFileName == "")
+                return;
+            string ExportFileShortName = System.IO.Path.GetFileNameWithoutExtension(ExportShapeFileName);
+            string ExportFilePath = System.IO.Path.GetDirectoryName(ExportShapeFileName);
+            shpPath = ExportFilePath + "\\" + ExportFileShortName + "\\" + ExportFileShortName + ".shp";
+            //设置导出要素类的参数
+
+
+
+            try
+            {
+                //string sFileName = System.IO.Path.GetFileName(fileName);
+                //string sFilePath = System.IO.Path.GetDirectoryName(fileName);
+
+                string sFileName = ExportFileShortName + ".shp";
+                string sFilePath = System.IO.Path.GetDirectoryName(shpPath);
+
+                IDataset pDataset = pFeatureClass as IDataset;
+
+                IWorkspaceFactory pWorkspaceFactory = new ShapefileWorkspaceFactoryClass();
+                IFeatureWorkspace pFeatureWorkspace = pWorkspaceFactory.OpenFromFile(sFilePath, 0) as IFeatureWorkspace;
+
+                IWorkspace pWorkspace = pFeatureWorkspace as IWorkspace;
+                if (pWorkspace.Exists() == true)
+                {
+                    //DelFeatureFile(sFilePath, sFileName);
+                }
+                pDataset.Copy(sFileName, pFeatureWorkspace as IWorkspace);
+
+            }
+            catch { MessageBox.Show("错误"); }  
+        }
+        void DelFeatureFile(string sDir, string sName)
+        {
+            //IFeatureClass pFeatCls = GetFeatureClassByFileName(sDir + sName);
+            //if (pFeatCls != null)
+            //{
+            //    IDataset dataset = pFeatCls as IDataset;
+            //    dataset.Delete();
+            //}
+
+        }  
 
         void itemopenproperties_Click(object sender, EventArgs e)
         {
