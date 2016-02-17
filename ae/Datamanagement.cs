@@ -63,7 +63,8 @@ namespace ae
                 return;
             string ExportFileShortName = System.IO.Path.GetFileNameWithoutExtension(ExportShapeFileName);
             string ExportFilePath = System.IO.Path.GetDirectoryName(ExportShapeFileName);
-            shpPath = ExportFilePath + "\\" + ExportFileShortName + "\\" + ExportFileShortName + ".shp";
+            //shpPath = ExportFilePath + "\\" + ExportFileShortName + "\\" + ExportFileShortName + ".shp";
+            shpPath = ExportFilePath + "\\" + ExportFileShortName + ".shp";
             //设置导出要素类的参数
 
 
@@ -73,7 +74,7 @@ namespace ae
                 //string sFileName = System.IO.Path.GetFileName(fileName);
                 //string sFilePath = System.IO.Path.GetDirectoryName(fileName);
 
-                string sFileName = ExportFileShortName + ".shp";
+                string sFileName = ExportFileShortName;// +".shp";
                 string sFilePath = System.IO.Path.GetDirectoryName(shpPath);
 
                 IDataset pDataset = pFeatureClass as IDataset;
