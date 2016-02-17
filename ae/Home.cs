@@ -55,6 +55,26 @@ namespace ae
             //AddPic();
             //
             //AddShp();
+            //AddGDB();
+            AddMDB();
+
+        }
+
+        private void AddMDB()
+        {
+            string filePath = "C:\\temp\\mdb.mdb";
+            AccessWorkspaceFactory fac = new AccessWorkspaceFactoryClass();
+            IFeatureWorkspace space = (IFeatureWorkspace)fac.OpenFromFile(filePath, 0);
+            IFeatureClass featureclass = space.OpenFeatureClass("layer");
+            IFeatureLayer pFLRoads = new FeatureLayer();
+            pFLRoads.FeatureClass = featureclass;
+            pFLRoads.Name = "点";
+            ILayer pLayerRoads = pFLRoads as ILayer;
+            Global.mainmap.AddLayer(pLayerRoads);
+        }
+
+        private void AddGDB()
+        {
             FileGDBWorkspaceFactory pWSF = new FileGDBWorkspaceFactory();
             IFeatureWorkspace pWS1 = pWSF.OpenFromFile("C:\\temp\\gdb.gdb", 0) as IFeatureWorkspace;
             IFeatureClass featureclass = pWS1.OpenFeatureClass("layer");
@@ -63,7 +83,6 @@ namespace ae
             pFLRoads.Name = "点";
             ILayer pLayerRoads = pFLRoads as ILayer;
             Global.mainmap.AddLayer(pLayerRoads);
-
         }
 
         private void AddShp()
